@@ -834,16 +834,13 @@ public partial class PageSetupUI
             // 工具子页面 (FrmToolsLeft)
             if (ModMain.frmToolsLeft is not null)
             {
-                ModMain.frmToolsLeft.ItemGameLink.Visibility = !HiddenForceShow && conf.ToolsGameLink
-                    ? Visibility.Collapsed
-                    : Visibility.Visible;
+                // 大厅入口已停用（含 F12 强制显示）
+                ModMain.frmToolsLeft.ItemGameLink.Visibility = Visibility.Collapsed;
                 ModMain.frmToolsLeft.ItemTest.Visibility =
                     !HiddenForceShow && conf.ToolsTest ? Visibility.Collapsed : Visibility.Visible;
-                
+
                 // 处理分类标题
-                var isGameLinkVisible = (!HiddenForceShow && !conf.ToolsGameLink) || HiddenForceShow;
-                ModMain.frmToolsLeft.TextGameLinkCategory.Visibility = isGameLinkVisible ? Visibility.Visible : Visibility.Collapsed;
-                if (isGameLinkVisible) ModMain.frmToolsLeft.TextGameLinkCategory.Opacity = 0.6;
+                ModMain.frmToolsLeft.TextGameLinkCategory.Visibility = Visibility.Collapsed;
 
                 var isToolsVisible = (!HiddenForceShow && !conf.ToolsTest) || HiddenForceShow;
                 ModMain.frmToolsLeft.TextToolsCategory.Visibility = isToolsVisible ? Visibility.Visible : Visibility.Collapsed;

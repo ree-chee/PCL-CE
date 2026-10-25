@@ -36,13 +36,8 @@ public partial class PageToolsLeft
         // 选择第一个未被禁用的子页面
         if (isPageSwitched) 
             return;
-        var hideCfg = Config.Preference.Hide;
-        if (!hideCfg.ToolsGameLink)
-            ItemGameLink.SetChecked(true, false, false);
-        else if (!hideCfg.ToolsTest)
-            ItemTest.SetChecked(true, false, false);
-        else
-            ItemGameLink.SetChecked(true, false, false);
+        // 大厅入口已停用，工具页固定落在「奇妙小工具」
+        ItemTest.SetChecked(true, false, false);
     }
 
     private void PageOtherLeft_Unloaded(object sender, RoutedEventArgs e)
@@ -74,7 +69,7 @@ public partial class PageToolsLeft
     /// <summary>
     ///     当前页面的编号。
     /// </summary>
-    public FormMain.PageSubType pageID = FormMain.PageSubType.ToolsGameLink;
+    public FormMain.PageSubType pageID = FormMain.PageSubType.ToolsTest;
 
     /// <summary>
     ///     勾选事件改变页面。

@@ -14,6 +14,7 @@
 
         <local:MyListItem x:Name="ItemGameLink"
                           IsScaleAnimationEnabled="False"
+                          Visibility="Collapsed"
                           Type="RadioBox" Tag="1"
                           Check="PageCheck"
                           MinPaddingRight="35" Height="36"
