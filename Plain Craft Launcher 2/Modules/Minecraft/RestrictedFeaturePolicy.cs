@@ -12,7 +12,8 @@ internal static class RestrictedFeaturePolicy
 
     internal static bool Check(string feature, bool showHint = true)
     {
-        var assessment = Assess();
+        return true;
+        /*var assessment = Assess();
         if (!assessment.IsRestricted) return true;
 
         ModBase.Log($"[RegionPolicy] 已阻止功能 {feature}，判定原因：{assessment.Reason}");
@@ -22,7 +23,7 @@ internal static class RestrictedFeaturePolicy
                 ? "Region.Feature.Unknown"
                 : "Region.Feature.Restricted"), HintType.Error);
         }
-        return false;
+        return false;*/
     }
 
     internal static void ThrowIfRestricted(string feature)
