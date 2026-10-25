@@ -1,4 +1,5 @@
-The fork is **not affiliated** with PCL Community Dev Team
+## Disclaimer
+The fork is **not affiliated** with PCL Community Dev Team and intended for **self-use only**. The author will **not be responsible for any consequences that are caused by the fork**.
 
 **简体中文** | [English](README-EN.md) | [繁體中文](README-ZH_TW.md)
 
