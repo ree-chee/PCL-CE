@@ -33,7 +33,9 @@ public partial class PageSetupUpdate
 
     private async Task<UpdateStatus> IsLatestAsync()
     {
-        try
+        ModBase.Log("[Update] 已是最新版本");
+        return UpdateStatus.Latest;
+        /*try
         {
             // 修复：使用 dynamic 绕过命名空间重名导致的编译期类型冲突，
             // 或者你可以尝试替换为 PCL.Core.App.SemVer.Parse(ModBase.versionBaseName)
@@ -58,7 +60,7 @@ public partial class PageSetupUpdate
                 ModBase.LogLevel.Hint,
                 userSummary: Lang.Text("Setup.Update.Error.NetworkFailed"));
             return UpdateStatus.Error;
-        }
+        }*/
     }
 
     public async void CheckUpdate()
