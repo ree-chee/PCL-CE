@@ -35,7 +35,8 @@ public static class UpdateManager
     
     public static UpdateEnums.VersionStatus GetVersionStatus()
     {
-        try
+        return UpdateEnums.VersionStatus.Latest;
+        /*try
         {
             if (IsCurrentVersionBeta && (int)Config.Update.UpdateChannel != 1)
             {
@@ -65,7 +66,7 @@ public static class UpdateManager
                 ModBase.LogLevel.Hint,
                 userSummary: Lang.Text("Update.Check.Failed"));
             return UpdateEnums.VersionStatus.Unknown;
-        }
+        }*/
     }
     
     public static ModLoader.LoaderCombo<JsonObject> updateLoader;
