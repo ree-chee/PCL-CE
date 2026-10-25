@@ -23,6 +23,9 @@ namespace PCL.Core.App.Essentials;
 [LifecycleService(LifecycleState.Running)]
 public sealed partial class TelemetryService
 {
+    // 遥测已停用：无论配置如何都不初始化 Sentry、不上报设备环境
+    private const bool TelemetryDisabled = true;
+
     private static void _InitSentry()
     {
         Context.Info("开始初始化 Sentry SDK");
@@ -153,7 +156,7 @@ public sealed partial class TelemetryService
     [LifecycleStart]
     private static async Task _StartAsync()
     {
-        if (!Config.System.Telemetry) return;
+        if (TelemetryDisabled || !Config.System.Telemetry) return;
         _InitSentry();
         
         var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

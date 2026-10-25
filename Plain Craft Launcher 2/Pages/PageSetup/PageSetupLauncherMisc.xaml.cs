@@ -49,7 +49,8 @@ public partial class PageSetupLauncherMisc
         CheckSystemDisableHardwareAcceleration.Checked = Config.System.DisableHardwareAcceleration;
         SliderAniFPS.Value = Config.System.AnimationFpsLimit;
         SliderMaxLog.Value = Config.System.MaxGameLog;
-        CheckSystemTelemetry.Checked = Config.System.Telemetry;
+        CheckSystemTelemetry.Checked = false;
+        CheckSystemTelemetry.IsEnabled = false; // 遥测已停用
 
         // 网络
         TextSystemHttpProxy.Text = Config.Network.HttpProxy.CustomAddress;

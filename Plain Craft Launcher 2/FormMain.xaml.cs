@@ -265,13 +265,11 @@ public partial class FormMain
                             }
                     }
 
-                // 遥测提示
-                if (Config.System.TelemetryConfig.IsDefault())
+                // 遥测已停用：强制关闭设置项，并移除首次询问
+                if (Config.System.Telemetry || !Config.System.TelemetryConfig.IsDefault())
                 {
-                    var selection = ModMain.MyMsgBox(
-                                Lang.Text("Main.Telemetry.Message"),
-                                Lang.Text("Main.Telemetry.Title"), Lang.Text("Common.Action.Agree"), Lang.Text("Common.Action.Decline"));
-                    Config.System.TelemetryConfig.SetValue(selection == 1, forceNewValue: true);
+                    Config.System.Telemetry = false;
+                    Config.System.TelemetryConfig.Reset();
                 }
                 // 启动加载器池
                 try
