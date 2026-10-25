@@ -774,9 +774,8 @@ public partial class PageSetupUI
                     !HiddenForceShow && conf.SetupJava ? Visibility.Collapsed : Visibility.Visible;
                 ModMain.frmSetupLeft.ItemUpdate.Visibility =
                     !HiddenForceShow && conf.SetupUpdate ? Visibility.Collapsed : Visibility.Visible;
-                ModMain.frmSetupLeft.ItemGameLink.Visibility = !HiddenForceShow && conf.SetupGameLink
-                    ? Visibility.Collapsed
-                    : Visibility.Visible;
+                // 联机设置页已停用（含 F12 强制显示）
+                ModMain.frmSetupLeft.ItemGameLink.Visibility = Visibility.Collapsed;
                 ModMain.frmSetupLeft.ItemAbout.Visibility =
                     !HiddenForceShow && conf.SetupAbout ? Visibility.Collapsed : Visibility.Visible;
                 ModMain.frmSetupLeft.ItemFeedback.Visibility = !HiddenForceShow && conf.SetupFeedback
@@ -789,7 +788,7 @@ public partial class PageSetupUI
                 {
                     (ModMain.frmSetupLeft.TextGameCategory,
                         !(conf.SetupLaunch && conf.SetupJava && conf.SetupGameManage)),
-                    (ModMain.frmSetupLeft.TextToolsCategory, !conf.SetupGameLink),
+                    (ModMain.frmSetupLeft.TextToolsCategory, false),
                     (ModMain.frmSetupLeft.TextLauncherCategory, !(conf.SetupUi && conf.SetupLauncherLanguage && conf.SetupLauncherMisc)),
                     (ModMain.frmSetupLeft.TextAboutCategory,
                         !(conf.SetupAbout && conf.SetupUpdate && conf.SetupFeedback && conf.SetupLog))
@@ -819,8 +818,7 @@ public partial class PageSetupUI
                     setupCount += 1;
                 if (!conf.SetupUpdate)
                     setupCount += 1;
-                if (!conf.SetupGameLink)
-                    setupCount += 1;
+                setupCount += 1; // 联机设置页已停用
                 if (!conf.SetupAbout)
                     setupCount += 1;
                 if (!conf.SetupFeedback)
